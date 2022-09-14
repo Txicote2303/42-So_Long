@@ -27,9 +27,30 @@ void	map_creator()
 		counter++;
 	}
 	map()->matrix = malloc(sizeof(char	*) * map()->sizey);
+	matrix_filler();
 }
 
 void	matrix_filler()
 {
-
+	int	counter;
+	int	counterx;
+	int	countery;
+	
+	counter = 0;
+	counterx = 0;
+	countery = 0;
+	while(map()->mapline[counter])
+	{
+		if(map()->mapline[counter] == '\n')
+		{
+			map()->matrix[counterx][countery] = '\0';
+			counterx = -1;
+			countery++;
+		}
+		else
+			map()->matrix[counterx][countery] = map()->mapline[counter];
+		counter++;
+		counterx++;
+	}
+	map()->matrix[counterx][countery] = '\0';
 }

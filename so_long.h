@@ -6,7 +6,7 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:33 by frcarval          #+#    #+#             */
-/*   Updated: 2022/09/08 01:57:26 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/09/14 19:02:58 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+
+typedef struct s_slave
+{
+	char	*temp;
+	int		counter;
+	int		another_counter;
+	int		indx;
+}	t_slave;
+
+typedef struct s_gnl
+{
+	char	*line;
+	int		counter;
+	int		size;
+}	t_gnl;
 
 typedef	struct s_map {
 	int		sizex;
@@ -34,14 +49,12 @@ void	map_read(char	*path);
 void	verification(char	*content, char	*extra);
 void	ver_ber(char	*path);
 void	ver_clean();
+void	map_creator();
+void	matrix_filler();
 //GNL functions
-char	*le_separateur(char **holy_one);
 char	*get_next_line(int fd);
-int		ft_strlen(char *wanna_be_counted);
-char	*ft_substr(char *wanna_be_subed, int start, int len);
-char	*ft_strdup(char *wanna_be_copied);
-int		ft_strchr(char *wanna_be_analyzed, char treasure);
-char	*ft_strjoin(char *goku, char *vegeta);
+char	*ft_slave(char *line, char *master, int line_size);
+int	ft_finder(char *str, char chr, int selector);
 
 #endif
 /*

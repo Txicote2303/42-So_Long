@@ -5,57 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 21:17:40 by frcarval          #+#    #+#             */
-/*   Updated: 2022/06/21 02:11:53 by frcarval         ###   ########.fr       */
+/*   Created: 2022/02/10 23:22:16 by frcarval          #+#    #+#             */
+/*   Updated: 2022/09/14 19:10:50 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*le_separateur(char **holy_one)
-{
-	char	*garbage;
-	char	*trash;
-	int		i;
-
-	if (!*holy_one || **holy_one == '\0')
-		return (0);
-	i = ft_strchr(*holy_one, '\n');
-	if (i >= 0)
-	{
-		trash = ft_substr(*holy_one, 0, i + 1);
-		garbage = ft_substr(*holy_one, i + 1, ft_strlen(*holy_one));
-		free (*holy_one);
-		*holy_one = garbage;
-		if (**holy_one != '\0')
-			return (trash);
-	}
-	else
-		trash = ft_strdup(*holy_one);
-	free (*holy_one);
-	*holy_one = 0;
-	return (trash);
-}
-
 char	*get_next_line(int fd)
 {
-	static char	*holy_one;
-	char		buffy_boy[1 + 1];
-	char		*garbage;
-	int			counter;
+	static char	master[FOPEN_MAX][1];
+	t_gnl		gnl;
 
-	if (fd < 0 || 1 <= 0 || fd > 4096)
-		return (NULL);
-	counter = read(fd, buffy_boy, 1);
-	while (counter > 0)
+	if (fd < 0 || 1 <= 0 || fd >= FOPEN_MAX)
+		error();
+		gnl.line = NULL;
+		gnl.size = 0;
+		gnl.counter = 0;
+	while (1)
 	{
-		if (!holy_one)
-			holy_one = ft_strdup("");
-		buffy_boy[counter] = '\0';
-		garbage = ft_strjoin(holy_one, buffy_boy);
-		free(holy_one);
-		holy_one = garbage;
-		counter = read(fd, buffy_boy, 1);
+		if (!master[fd][0])
+			gnl.counter = read(fd, master[fd], 1);
+		else
+			gnl.counter = ft_finder(master[fd], '\0', 1);
+		gnl.size += ft_finder(master[fd], '\0', 1);
+		if (gnl.counter > 0)
+			gnl.line = ft_slave(gnl.line, master[fd], gnl.size);
+		if (ft_finder(gnl.line, '\0', -1) != -1 || gnl.counter <= 0)
+			return (gnl.line);
 	}
-	return (holy_one);
+	return (gnl.line);
 }
