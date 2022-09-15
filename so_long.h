@@ -6,7 +6,7 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:33 by frcarval          #+#    #+#             */
-/*   Updated: 2022/09/14 19:02:58 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/09/15 04:58:14 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,25 @@ typedef	struct s_map {
 //general functions
 void	error();
 int	stringcmp(char	*str1, char	*str2);
+int	string_size(char	*string);
+char	*my_dup(char	*string);
+char	*nl_rmv(char	*string);
+int	my_len(char	*string);
 //map functions
 t_map	*map(void);
 void	map_read(char	*path);
 void	verification(char	*content, char	*extra);
 void	ver_ber(char	*path);
 void	ver_clean();
-void	map_creator();
-void	matrix_filler();
+void 	ver_square();
+void	ver_size();
+void	map_creator(char	*path);
+void	matrix_filler(char	*path);
 //GNL functions
 char	*get_next_line(int fd);
+char	*get_whole_line(int fd);
 char	*ft_slave(char *line, char *master, int line_size);
-int	ft_finder(char *str, char chr, int selector);
+int		ft_finder(char *str, char chr, int selector);
 
 #endif
 /*
@@ -65,13 +72,14 @@ Needed Stuff
 
 - map Verifications
 	- is_ber 			V
-	- has_path
-	- size
+	- has_path			
+	- size				v
 	- has_wall
 	- has_character
 	- has_collectable
 	- has_finish
-	- is_clean			V
+	- is square			V
+	- is_clean			V test
 
 - map stats
 	- images

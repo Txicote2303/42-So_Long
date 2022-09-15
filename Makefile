@@ -6,7 +6,7 @@
 #    By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/21 16:02:27 by frcarval          #+#    #+#              #
-#    Updated: 2022/09/05 19:46:21 by frcarval         ###   ########.fr        #
+#    Updated: 2022/09/14 23:49:13 by frcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SOURCES		=	so_long.c						\
 				funcs/map_related/construction.c\
 				funcs/map_related/verif.c		\
 				gnl/get_next_line.c				\
+				gnl/get_whole_line.c			\
 				gnl/get_next_line_utils.c		\
 
 NAME 	=	so_long

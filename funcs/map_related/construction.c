@@ -7,14 +7,15 @@ void	map_read(char	*path)
 
 	verification("ber", path);
 	fd = open(path, O_RDONLY);
-	temp = get_next_line(fd);
+	temp = get_whole_line(fd);
 	map()->mapline = temp;
 	verification("clean", "");
-	printf("%s", map()->mapline);
-	map_creator();
+	//test
+	printf("%s\n", map()->mapline);
+	map_creator(path);
 }
 
-void	map_creator()
+void	map_creator(char	*path)
 {
 	int	counter;
 
@@ -26,10 +27,28 @@ void	map_creator()
 			map()->sizey++;
 		counter++;
 	}
-	map()->matrix = malloc(sizeof(char	*) * map()->sizey);
-	matrix_filler();
+	map()->matrix = malloc(sizeof(char	*) * map()->sizey + 1);
+	matrix_filler(path);
 }
 
+void	matrix_filler(char	*path)
+{
+	int		fd;
+	//char	*temp;
+	int	countery;
+
+	countery = 0;
+	fd = open(path, O_RDONLY);
+	while(countery < (map()->sizey + 1))
+	{
+		//temp = get_next_line(fd);
+		map()->matrix[countery] = nl_rmv(get_next_line(fd));
+		countery++;
+	}
+	verification("square", "");
+	verification("size", "");
+}
+/*
 void	matrix_filler()
 {
 	int	counter;
@@ -49,8 +68,20 @@ void	matrix_filler()
 		}
 		else
 			map()->matrix[counterx][countery] = map()->mapline[counter];
-		counter++;
 		counterx++;
+		counter++;
 	}
 	map()->matrix[counterx][countery] = '\0';
-}
+	printf("\n\n\n");
+	counterx = 0;
+	countery = 0;
+	while(map()->matrix[counterx][countery])
+	{
+		while(map()->matrix[counterx][countery])
+		{
+			printf("%c\n", map()->matrix[counterx][countery]);
+			counterx = 0;
+		}
+		counterx++;
+		countery = 0;
+	}*/
