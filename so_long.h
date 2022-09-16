@@ -6,7 +6,7 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:33 by frcarval          #+#    #+#             */
-/*   Updated: 2022/09/15 04:58:14 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/09/15 22:03:19 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef	struct s_map {
 }				t_map;
 
 //general functions
-void	error();
+void	error(char	*string);
 int	stringcmp(char	*str1, char	*str2);
 int	string_size(char	*string);
 char	*my_dup(char	*string);
@@ -55,6 +55,9 @@ void	ver_ber(char	*path);
 void	ver_clean();
 void 	ver_square();
 void	ver_size();
+void	ver_wall();
+void	ver_stuff();
+void	putstr(char *string);
 void	map_creator(char	*path);
 void	matrix_filler(char	*path);
 //GNL functions
@@ -74,12 +77,12 @@ Needed Stuff
 	- is_ber 			V
 	- has_path			
 	- size				v
-	- has_wall
-	- has_character
-	- has_collectable
-	- has_finish
+	- has_wall			v
+	- has_character		V
+	- has_collectable	V
+	- has_finish		V
 	- is square			V
-	- is_clean			V test
+	- is_clean			V
 
 - map stats
 	- images

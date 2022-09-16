@@ -6,7 +6,7 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:22:16 by frcarval          #+#    #+#             */
-/*   Updated: 2022/09/15 00:04:17 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/09/15 22:10:34 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*get_whole_line(int fd)
 	t_gnl		gnl;
 
 	if (fd < 0 || 1 <= 0 || fd >= FOPEN_MAX)
-		error();
+		error("FD error");
 		gnl.line = NULL;
 		gnl.size = 0;
 		gnl.counter = 0;

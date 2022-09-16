@@ -47,6 +47,8 @@ void	matrix_filler(char	*path)
 	}
 	verification("square", "");
 	verification("size", "");
+	verification("wall", "");
+	verification("stuff", "");
 }
 /*
 void	matrix_filler()

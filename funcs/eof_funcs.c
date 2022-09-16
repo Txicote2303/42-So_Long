@@ -1,10 +1,23 @@
 #include "so_long.h"
 
-void error()
+void error(char	*string)
 {
-	//eliminate printf()
-	printf("ERROR\n");
+	putstr("Error: ");
+	putstr(string);
+	write(1, "\n", 1);
 	exit(EXIT_FAILURE);
+}
+
+void	putstr(char *string)
+{
+	int	counter;
+
+	counter = 0;
+	while (string[counter])
+	{
+		write(1, &string[counter], 1);
+		counter++;
+	}
 }
 
 int	stringcmp(char	*str1, char	*str2)
@@ -13,7 +26,7 @@ int	stringcmp(char	*str1, char	*str2)
 
 	counter = -1;
 	if(!str1 || !str2)
-		error();
+		error("No strings to compare (stringcmp)");
 	while (str1[++counter])
 	{
 		if(str1[counter] != str2[counter])
