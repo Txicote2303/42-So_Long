@@ -116,5 +116,5 @@ void	ver_stuff()
 			has_finish++;
 	}
 	if(has_character != 1 || has_finish != 1 || has_collectible < 1)
-		error("A  asset is present in unsupported quantaty");
+		error("A  asset is present in unsupported quantity");
 }

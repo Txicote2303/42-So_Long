@@ -6,7 +6,7 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:33 by frcarval          #+#    #+#             */
-/*   Updated: 2022/09/15 22:03:19 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/09/16 05:07:21 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <mlx.h>
 
 typedef struct s_slave
 {
@@ -40,6 +41,14 @@ typedef	struct s_map {
 	char	**matrix;
 }				t_map;
 
+typedef struct s_window
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	int		height;
+	int		width;
+}		t_window;
+
 //general functions
 void	error(char	*string);
 int	stringcmp(char	*str1, char	*str2);
@@ -60,6 +69,9 @@ void	ver_stuff();
 void	putstr(char *string);
 void	map_creator(char	*path);
 void	matrix_filler(char	*path);
+//MLX functions
+t_window	*window(void);
+void	new_window();
 //GNL functions
 char	*get_next_line(int fd);
 char	*get_whole_line(int fd);

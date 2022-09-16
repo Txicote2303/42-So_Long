@@ -6,7 +6,7 @@
 #    By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/21 16:02:27 by frcarval          #+#    #+#              #
-#    Updated: 2022/09/14 23:49:13 by frcarval         ###   ########.fr        #
+#    Updated: 2022/09/16 05:06:13 by frcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,18 @@ SOURCES		=	so_long.c						\
 				funcs/structures.c				\
 				funcs/map_related/construction.c\
 				funcs/map_related/verif.c		\
+				funcs/mlx_related/window.c		\
 				gnl/get_next_line.c				\
 				gnl/get_whole_line.c			\
 				gnl/get_next_line_utils.c		\
 
 NAME 	=	so_long
-GCCW	=	@gcc -Wall -Wextra -Werror -I.
+GCCW	=	@gcc -Wall -Wextra -Werror -I/usr/local/include -I./
 
 all:		$(NAME)
 
 $(NAME): 	$(SOURCES)
-			$(GCCW) $^ -o $@
+			$(GCCW) $^ -o $@ -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
 			@clear && echo "\033[1;32m  ___  __   _  _  ____  __  __    ____  ____ \n / __)/  \ ( \/ )(  _ \(  )(  )  (  __)(    \ \n( (__(  O )/ \/ \ ) __/ )( / (_/\ ) _)  ) D (\n \___)\__/ \_)(_/(__)  (__)\____/(____)(____/"
 clean:		
 			@clear && echo "\033[1;33m  ___  __    ____   __   __ _  ____  ____ \n / __)(  )  (  __) / _\ (  ( \(  __)(    \ \n( (__ / (_/\ ) _) /    \/    / ) _)  ) D (\n \___)\____/(____)\_/\_/\_)__)(____)(____/"

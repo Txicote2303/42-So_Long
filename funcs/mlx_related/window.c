@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structures.c                                       :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 21:31:23 by frcarval          #+#    #+#             */
-/*   Updated: 2022/09/16 04:06:12 by frcarval         ###   ########.fr       */
+/*   Created: 2022/09/16 04:26:06 by frcarval          #+#    #+#             */
+/*   Updated: 2022/09/16 05:00:09 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_map	*map(void)
+void	new_window()
 {
-	static	t_map var;
-	
-	return (&var);
-}
-t_window	*window(void)
-{
-	static	t_window var;
-	
-	return (&var);
+	window()->mlx_ptr = mlx_init();
+	if(!window()->mlx_ptr)
+		error("No mlx_ptr");
+	window()->mlx_ptr = mlx_new_window(window()->mlx_ptr, map()->sizey * 16,  map()->sizex * 16, "so_long");
 }
