@@ -6,5 +6,6 @@ int	main(int argc, char	**argv)
 		error("Wrong Args");
 	map_read(argv[1]);
 	new_window();
-	while(1);
+	putimg();
+	mlx_loop(window()->mlx_ptr);
 }

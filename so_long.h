@@ -6,7 +6,7 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:33 by frcarval          #+#    #+#             */
-/*   Updated: 2022/09/16 05:07:21 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/09/19 01:50:43 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ typedef struct s_slave
 	int		another_counter;
 	int		indx;
 }	t_slave;
+
+typedef struct s_img
+{
+	//t_window	*win;
+	void		*img_ptr;
+	char		*path;
+	int			height;
+	int			width;
+}		t_img;
 
 typedef struct s_gnl
 {
@@ -71,6 +80,8 @@ void	map_creator(char	*path);
 void	matrix_filler(char	*path);
 //MLX functions
 t_window	*window(void);
+t_img	*img(void);
+void	putimg(void);
 void	new_window();
 //GNL functions
 char	*get_next_line(int fd);
