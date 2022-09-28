@@ -15,8 +15,10 @@ int	main(int argc, char	**argv)
 		error("Wrong Args");
 	map_read(argv[1]);
 	(void)mainw;
+
 	new_window();
 	putimg();
+	map()->moves = 0;
 	mlx_key_hook(window()->win_ptr, key_handle, &mainw);
 	mlx_loop(window()->mlx_ptr);
 }

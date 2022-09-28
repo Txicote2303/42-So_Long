@@ -6,7 +6,7 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:33 by frcarval          #+#    #+#             */
-/*   Updated: 2022/09/28 03:38:04 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:42:44 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_gnl
 typedef	struct s_map {
 	int		sizex;
 	int		sizey;
+	int		moves;
 	char	*mapline;
 	char	**matrix;
 }				t_map;

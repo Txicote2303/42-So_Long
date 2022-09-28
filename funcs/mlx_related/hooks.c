@@ -18,6 +18,9 @@ int	move_up()
 					close_mlx(window());
 					return(0);
 				}
+				map()->moves++;
+				//change this;
+				printf("%i\n", map()->moves);
 				map()->matrix[countery][counterx] = '0';
 				map()->matrix[countery - 1][counterx] = 'P';
 			}
@@ -48,8 +51,12 @@ int	move_down()
 					close_mlx(window());
 					return(0);
 				}
+				map()->moves++;
+				//change this;
+				printf("%i\n", map()->moves);
 				map()->matrix[countery][counterx] = '0';
 				map()->matrix[countery + 1][counterx] = 'P';
+				return(0);
 			}
 			//printf("%c\n", map()->matrix[countery][counterx]);
 			counterx++;
@@ -78,6 +85,9 @@ int	move_left()
 					close_mlx(window());
 					return(0);
 				}
+				map()->moves++;
+				//change this;
+				printf("%i\n", map()->moves);
 				map()->matrix[countery][counterx] = '0';
 				map()->matrix[countery][counterx - 1] = 'P';
 			}
@@ -108,8 +118,12 @@ int	move_right()
 					close_mlx(window());
 					return(0);
 				}
+				map()->moves++;
+				//change this;
+				printf("%i\n", map()->moves);
 				map()->matrix[countery][counterx] = '0';
 				map()->matrix[countery][counterx + 1] = 'P';
+				return(0);
 			}
 			//printf("%c\n", map()->matrix[countery][counterx]);
 			counterx++;
