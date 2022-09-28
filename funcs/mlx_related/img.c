@@ -45,7 +45,6 @@ void	putimg(void)
 				error("No supported char (put_img)");
 			if(!img()->img_ptr)
 				error("Could not read asset");
-			printf("%c\n", map()->matrix[countery][counterx]);
 			mlx_put_image_to_window(window()->mlx_ptr, window()->win_ptr, img()->img_ptr, counterx * 16, countery * 16);
 			countery++;
 		}

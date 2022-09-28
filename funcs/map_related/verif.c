@@ -48,6 +48,28 @@ void	ver_clean()
 			error("Map with unsupported characters");
 }
 
+int	ver_col()
+{
+	int	counterx;
+	int	countery;
+
+
+	counterx = 0;
+	countery = 0;
+	while(countery < map()->sizey)
+	{
+		while(counterx < map()->sizex)
+		{
+			if(map()->matrix[countery][counterx] == 'C')
+				return(0);
+			counterx++;
+		}
+		countery++;
+		counterx = 0;
+	}
+	return(1);
+}
+
 void ver_square()
 {
 	int	counter;

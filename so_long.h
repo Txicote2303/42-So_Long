@@ -6,12 +6,19 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:33 by frcarval          #+#    #+#             */
-/*   Updated: 2022/09/19 01:50:43 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/09/28 03:38:04 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# define ESC 53
+# define ENTER 36
+# define WKEY 13
+# define AKEY 0
+# define SKEY 1
+# define DKEY 2
 
 # include <fcntl.h>
 # include <unistd.h>
@@ -75,6 +82,7 @@ void 	ver_square();
 void	ver_size();
 void	ver_wall();
 void	ver_stuff();
+int	ver_col();
 void	putstr(char *string);
 void	map_creator(char	*path);
 void	matrix_filler(char	*path);
@@ -83,6 +91,9 @@ t_window	*window(void);
 t_img	*img(void);
 void	putimg(void);
 void	new_window();
+int		close_mlx();
+int	move_up();
+int		key_handle(int key, t_window	*mainw);
 //GNL functions
 char	*get_next_line(int fd);
 char	*get_whole_line(int fd);

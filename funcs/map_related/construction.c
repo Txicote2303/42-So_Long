@@ -11,7 +11,7 @@ void	map_read(char	*path)
 	map()->mapline = temp;
 	verification("clean", "");
 	//test
-	printf("%s\n", map()->mapline);
+	//printf("%s\n", map()->mapline);
 	map_creator(path);
 }
 
