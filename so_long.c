@@ -15,7 +15,8 @@ int	main(int argc, char	**argv)
 		error("Wrong Args");
 	map_read(argv[1]);
 	(void)mainw;
-
+	
+	printf("\n\n\n%i\n\n\n", map()->sizex);
 	new_window();
 	putimg();
 	map()->moves = 0;

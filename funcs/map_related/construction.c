@@ -34,28 +34,31 @@ void	map_creator(char	*path)
 void	matrix_filler(char	*path)
 {
 	int		fd;
-	//char	*temp;
+	char	*temp;
 	int	countery;
 	int	counterx;
 
-	countery = 0;
 	counterx = 0;
+	countery = 0;
 	fd = open(path, O_RDONLY);
+	(void) fd;
 	while(countery < (map()->sizey + 1))
 	{
-		//temp = get_next_line(fd);
-		map()->matrix[countery] = nl_rmv(get_next_line(fd));
+		temp = nl_rmv(get_next_line(fd));
+		map()->matrix[countery] = malloc ((sizeof(char) * my_len(temp) + 1));
+		while(temp[counterx])
+		{
+			map()->matrix[countery][counterx] = [counterx];
+			counterx++;
+		}
+		map()->matrix[countery][counterx] = '\0';
 		countery++;
-	}
-	while(counterx < map()->sizex)
-	{
-		map()->matrix[countery][counterx++] = '\0';
 	}
 	verification("square", "");
 	verification("size", "");
 	verification("wall", "");
 	verification("stuff", "");
-	//verification("viable", "");
+	verification("viable", "");
 }
 /*
 void	matrix_filler()
