@@ -6,7 +6,7 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:33 by frcarval          #+#    #+#             */
-/*   Updated: 2022/09/28 15:42:44 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/10/25 11:44:11 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ char	*nl_rmv(char	*string);
 int	my_len(char	*string);
 //map functions
 t_map	*map(void);
+t_map	*mapcp(void);
+void	map_repro(void);
 void	map_read(char	*path);
 void	verification(char	*content, char	*extra);
 void	ver_ber(char	*path);
@@ -83,6 +85,7 @@ void 	ver_square();
 void	ver_size();
 void	ver_wall();
 void	ver_stuff();
+void	ver_viable();
 int	ver_col();
 void	putstr(char *string);
 void	map_creator(char	*path);

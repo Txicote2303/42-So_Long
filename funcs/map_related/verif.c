@@ -14,6 +14,8 @@ void	verification(char	*content, char	*extra)
 		ver_wall();
 	else if(stringcmp(content, "stuff") == 1)
 		ver_stuff();
+	else if(stringcmp(content, "viable") == 1)
+		ver_viable();
 	else
 		error("Non existent verification");
 }
@@ -139,4 +141,9 @@ void	ver_stuff()
 	}
 	if(has_character != 1 || has_finish != 1 || has_collectible < 1)
 		error("A  asset is present in unsupported quantity");
+}
+
+void	ver_viable()
+{
+	map_repro();
 }

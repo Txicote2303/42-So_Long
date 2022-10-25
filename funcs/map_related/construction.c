@@ -36,8 +36,10 @@ void	matrix_filler(char	*path)
 	int		fd;
 	//char	*temp;
 	int	countery;
+	int	counterx;
 
 	countery = 0;
+	counterx = 0;
 	fd = open(path, O_RDONLY);
 	while(countery < (map()->sizey + 1))
 	{
@@ -45,10 +47,15 @@ void	matrix_filler(char	*path)
 		map()->matrix[countery] = nl_rmv(get_next_line(fd));
 		countery++;
 	}
+	while(counterx < map()->sizex)
+	{
+		map()->matrix[countery][counterx++] = '\0';
+	}
 	verification("square", "");
 	verification("size", "");
 	verification("wall", "");
 	verification("stuff", "");
+	//verification("viable", "");
 }
 /*
 void	matrix_filler()
