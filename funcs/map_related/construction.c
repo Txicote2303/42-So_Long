@@ -41,17 +41,17 @@ void	matrix_filler(char	*path)
 	counterx = 0;
 	countery = 0;
 	fd = open(path, O_RDONLY);
-	(void) fd;
 	while(countery < (map()->sizey + 1))
 	{
 		temp = nl_rmv(get_next_line(fd));
 		map()->matrix[countery] = malloc ((sizeof(char) * my_len(temp) + 1));
 		while(temp[counterx])
 		{
-			map()->matrix[countery][counterx] = [counterx];
+			map()->matrix[countery][counterx] = temp[counterx];
 			counterx++;
 		}
 		map()->matrix[countery][counterx] = '\0';
+		free(temp);
 		countery++;
 	}
 	verification("square", "");
