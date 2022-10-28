@@ -10,23 +10,12 @@ void	map_read(char	*path)
 	temp = get_whole_line(fd);
 	map()->mapline = temp;
 	verification("clean", "");
-	//test
-	//printf("%s\n", map()->mapline);
 	map_creator(path);
 }
 
 void	map_creator(char	*path)
 {
-	int	counter;
-
-	counter = 0;
-	map()->sizey = 1;
-	while(map()->mapline[counter])
-	{
-		if(map()->mapline[counter] == '\n')
-			map()->sizey++;
-		counter++;
-	}
+	verification("square","");
 	map()->matrix = malloc(sizeof(char	*) * map()->sizey + 1);
 	matrix_filler(path);
 }
@@ -36,25 +25,18 @@ void	matrix_filler(char	*path)
 	int		fd;
 	char	*temp;
 	int	countery;
-	int	counterx;
+	// int	counterx;
 
-	counterx = 0;
+	// counterx = 0;
 	countery = 0;
 	fd = open(path, O_RDONLY);
-	while(countery < (map()->sizey + 1))
+	while(countery < (map()->sizey))
 	{
 		temp = nl_rmv(get_next_line(fd));
-		map()->matrix[countery] = malloc ((sizeof(char) * my_len(temp) + 1));
-		// while(temp[counterx])
-		// {
-		// 	map()->matrix[countery][counterx] = temp[counterx];
-		// 	counterx++;
-		// }
-		// map()->matrix[countery][counterx] = '\0';
-		free(temp);
+		map()->matrix[countery] = malloc (sizeof(char) * (map()->sizex + 1));
+		strcpy(map()->matrix[countery], temp);
 		countery++;
 	}
-	verification("square", "");
 	verification("size", "");
 	verification("wall", "");
 	verification("stuff", "");

@@ -40,7 +40,7 @@ int	stringcmp(char	*str1, char	*str2)
 int	string_size(char	*string)
 {
 	int	counter;
-	
+
 	counter = 0;
 	while(string[counter])
 		counter++;
@@ -64,6 +64,23 @@ char	*nl_rmv(char	*string)
 	return(temp);
 }
 
+// char	*nl_rmv(char	*string)
+// {
+// 	int	counter;
+// 	char	*temp;
+// 	counter = 0;
+// 	temp = my_dup(string);
+// 	if(!string)
+// 		return(string);
+// 	while(temp[counter])
+// 	{
+// 		if(temp[counter] == '\n')
+// 			temp[counter] = '\0';
+// 		counter++;
+// 	}
+// 	return(temp);
+// }
+
 char	*my_dup(char	*string)
 {
 	char	*returner;
@@ -74,7 +91,7 @@ char	*my_dup(char	*string)
 		returner = malloc(sizeof(char));
 	else
 	{
-		returner = malloc(sizeof(char) * (my_len(string) + 1));
+		returner = malloc(sizeof(char) * (string_size(string) + 1));
 		while (string[counter])
 		{
 			returner[counter] = string[counter];
@@ -84,12 +101,12 @@ char	*my_dup(char	*string)
 	returner[counter] = '\0';
 	return (returner);
 }
-int	my_len(char	*string)
-{
-	int	counter;
+// int	my_len(char	*string)
+// {
+// 	int	counter;
 
-	counter = 0;
-	while (string[counter])
-		counter++;
-	return (counter);
-}
+// 	counter = 0;
+// 	while (string[counter])
+// 		counter++;
+// 	return (counter);
+// }

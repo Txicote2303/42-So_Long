@@ -6,7 +6,7 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:33 by frcarval          #+#    #+#             */
-/*   Updated: 2022/10/25 11:44:11 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:31:58 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <string.h>
 # include <stdlib.h>
 # include <mlx.h>
 
@@ -58,6 +59,17 @@ typedef	struct s_map {
 	char	**matrix;
 }				t_map;
 
+typedef	struct s_mapcp {
+	int		sizex;
+	int		sizey;
+	int		moves;
+	int		px;
+	int		py;
+	int		initialx;
+	int		initialy;
+	char	**matrix;
+}				t_mapcp;
+
 typedef struct s_window
 {
 	void	*mlx_ptr;
@@ -72,11 +84,13 @@ int	stringcmp(char	*str1, char	*str2);
 int	string_size(char	*string);
 char	*my_dup(char	*string);
 char	*nl_rmv(char	*string);
-int	my_len(char	*string);
 //map functions
 t_map	*map(void);
-t_map	*mapcp(void);
+t_mapcp	*mapcp(void);
 void	map_repro(void);
+void	map_findp(void);
+int		map_check();
+void	ver_fill(int x, int y);
 void	map_read(char	*path);
 void	verification(char	*content, char	*extra);
 void	ver_ber(char	*path);

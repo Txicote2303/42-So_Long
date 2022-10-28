@@ -6,7 +6,7 @@
 /*   By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 21:31:23 by frcarval          #+#    #+#             */
-/*   Updated: 2022/10/25 11:30:12 by frcarval         ###   ########.fr       */
+/*   Updated: 2022/10/27 13:36:53 by frcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ t_map	*map(void)
 	
 	return (&var);
 }
-t_map	*mapcp(void)
+t_mapcp	*mapcp(void)
 {
-	static	t_map var;
+	static	t_mapcp var;
 	
 	return (&var);
 }

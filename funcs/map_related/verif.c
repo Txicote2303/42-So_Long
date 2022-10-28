@@ -75,20 +75,33 @@ int	ver_col()
 void ver_square()
 {
 	int	counter;
-	int	temp;
+	int	aux;
 
-	counter = 1;
-	temp = string_size(map()->matrix[0]);
-	//printf("%s\n", map()->matrix[0]);
-	while (map()->matrix[counter])
-	{
-		//printf("%d\n", string_size(map()->matrix[counter]));
-		//printf("%s\n", map()->matrix[counter]);
-		if(temp != string_size(map()->matrix[counter]))
-			error("Map is not rectangular");
+	counter = 0;
+	aux = 0;
+	map()->sizey = 1;
+	map()->sizex = 0;
+	while(map()->mapline[counter] && map()->mapline[counter] != '\n')
 		counter++;
+	map()->sizex = counter;
+	counter = 0;
+	while(map()->mapline[counter])
+	{
+		if(map()->mapline[counter] == '\n')
+		{
+			map()->sizey++;
+			if(map()->sizex != (aux))
+			{
+				//printf("x: %i, aux: %i\n", map()->sizex, aux);
+				error("Map isn't rectangular");
+			}
+			aux = -1;
+		}
+		counter++;
+		aux++;
 	}
-	map()->sizex = temp;
+	if(map()->sizex != aux)
+				error("Map isn't rectangular");
 }
 void	ver_size()
 {
@@ -146,4 +159,8 @@ void	ver_stuff()
 void	ver_viable()
 {
 	map_repro();
+	map_findp();
+	ver_fill(mapcp()->px, mapcp()->py);
+	if (map_check())
+		error("Not valid");
 }

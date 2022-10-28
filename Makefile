@@ -6,7 +6,7 @@
 #    By: frcarval <frcarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/21 16:02:27 by frcarval          #+#    #+#              #
-#    Updated: 2022/10/25 18:42:39 by frcarval         ###   ########.fr        #
+#    Updated: 2022/10/26 15:08:53 by frcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SOURCES		=	so_long.c						\
 				funcs/map_related/map_cp.c		\
 				funcs/map_related/verif.c		\
 				funcs/mlx_related/window.c		\
+				funcs/mlx_related/general.c		\
 				funcs/mlx_related/img.c			\
 				funcs/mlx_related/hooks.c		\
 				gnl/get_next_line.c				\
